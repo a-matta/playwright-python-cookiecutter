@@ -28,11 +28,11 @@
   ```sh
   playwright install
   ```
-
-```sh
-# Uses PyInvoke
-inv tests
-```
+* Running the tests
+  ```sh
+  # Uses PyInvoke
+  inv tests
+  ```
 
 ---
 
