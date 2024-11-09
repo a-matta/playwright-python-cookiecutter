@@ -24,8 +24,10 @@
   ```sh
   poetry install
   ```
-
-## Running the Tests
+* Install playwright dependencies
+  ```sh
+  playwright install
+  ```
 
 ```sh
 # Uses PyInvoke
