@@ -22,11 +22,12 @@ def clean(context):
 
 
 @task(pre=[clean])
-def tests(context, headed=False, browser="chromium", video=False):
+def tests(context, headed=False, browser="chromium", tracing=False, video=False):
     cmd = [
         "pytest",
         "--headed" if headed else "",
         f"--browser {browser}",
+        "--tracing=retain-on-failure" if tracing else "",
         "--video=retain-on-failure" if video else "",
         f"{ROOT}/tests",
     ]
