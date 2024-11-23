@@ -23,7 +23,7 @@ def clean(context):
 
 
 @task(pre=[clean])
-def tests(context, headed=False, browser="chromium", slowmo="0", tracing=False, video=False):
+def tests(context, headed=False, browser="chromium", slowmo="0", tracing=False, video=False, mark=""):
     """Run the tests in 'tests' directory.
 
     Args:
@@ -32,6 +32,8 @@ def tests(context, headed=False, browser="chromium", slowmo="0", tracing=False, 
         slowmo: Whether to run the tests in slow motion. Disabled by default.
         tracing: Whether to record a trace for failing test. Disabled by default.
         video: Whether to record a video for failing test. Disabled by default.
+        mark: Mark to select/deselect tests to be executed.
+
 
     For reference: see https://playwright.dev/python/docs/test-runners#cli-arguments
     """
@@ -42,6 +44,7 @@ def tests(context, headed=False, browser="chromium", slowmo="0", tracing=False, 
         f"--slowmo={slowmo}",
         "--tracing=retain-on-failure" if tracing else "",
         "--video=retain-on-failure" if video else "",
+        f'-m "{mark}"' if mark else "",
         f"{ROOT}/tests",
     ]
     subprocess.run(" ".join(cmd), shell=True, check=True)
