@@ -15,6 +15,7 @@
 * Requirements:
   * [Poetry](https://python-poetry.org/)
   * Python 3.12+
+  * [Install Allure Report](https://allurereport.org/docs/install/)
 * Clone this repository
 * Create a virtual environment and activate it
   ```sh
@@ -32,6 +33,10 @@
   ```sh
   # Uses PyInvoke
   inv tests
+  ```
+* To view the allure reports.
+  ```sh
+  allure serve allure-results
   ```
 
 ---

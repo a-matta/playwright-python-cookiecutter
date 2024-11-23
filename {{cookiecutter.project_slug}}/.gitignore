@@ -10,3 +10,6 @@ report/
 
 # playwright
 test-results/
+
+# allure
+allure-results/

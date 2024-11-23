@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import allure
 import pytest
 from slugify import slugify
 
@@ -27,4 +28,9 @@ def pytest_runtest_makereport(item, call):
         if (report.skipped and xfail) or (report.failed and not xfail):
             # add the screenshots to the html report. use path relative to screenshot
             extra.append(pytest_html.extras.png(f"{screenshots}/{screenshot_file_name}"))
+            allure.attach.file(
+                f"{report_dir}/{screenshots}/{screenshot_file_name}",
+                name="Screenshot",
+                attachment_type=allure.attachment_type.PNG,
+            )
         report.extras = extra

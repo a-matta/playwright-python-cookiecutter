@@ -39,6 +39,8 @@ def tests(context, headed=False, browser="chromium", slowmo="0", tracing=False, 
     """
     cmd = [
         "pytest",
+        "--alluredir",
+        "allure-results",
         "--headed" if headed else "",
         f"--browser {browser}",
         f"--slowmo={slowmo}",
